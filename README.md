@@ -16,9 +16,9 @@
 [![IA](https://img.shields.io/badge/IA-el_modelo_que_quieras-7c3aed?style=flat-square)](#-resumen-del-día-con-ia)
 [![License](https://img.shields.io/badge/License-MIT-339933?style=flat-square)](LICENSE)
 
-**Pulsa Ctrl dos veces y migas guarda lo que estás mirando: la página del navegador, una issue de Jira, un MR de
-GitLab, un ticket de Freshservice o el texto que tengas seleccionado. Todo queda en un diario por días, se relaciona
-solo y te avisa cuando algo de lo guardado cambia.**
+**Pulsa Ctrl dos veces y migas guarda la página que estás mirando, sea cual sea, o el texto que tengas seleccionado.
+Si es una issue de Jira, un MR de GitLab o un ticket de Freshservice, además la relaciona con lo demás y te avisa
+cuando cambia. Todo queda en un diario por días.**
 
 </div>
 
@@ -28,7 +28,7 @@ solo y te avisa cuando algo de lo guardado cambia.**
 
 ## ✨ Qué hace
 
-- ⌨️ **Doble Ctrl en cualquier sitio**: en el navegador guarda la página (con la extensión); fuera de él, el texto
+- ⌨️ **Doble Ctrl en cualquier sitio**: en el navegador guarda cualquier página (con la extensión); fuera de él, el texto
   seleccionado. También con `Alt+Shift+M` en Chrome o `migas --capturar`.
 - 📅 **Diario por días**: línea de tiempo con filtros por fuente, calendario, fijadas, papelera y notas en cada miga.
 - 🔗 **Relaciones automáticas**: une lo que comparte clave (`PROJ-123`, `!39`, `#12`, `FS#45600`), aplicación o
