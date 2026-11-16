@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>migas</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: oklch(0.155 0.01 265);
+        --sup-1: oklch(0.19 0.011 265);
+        --sup-2: oklch(0.225 0.012 265);
+        --linea: oklch(1 0 0 / 0.07);
+        --linea-fuerte: oklch(1 0 0 / 0.13);
+        --tx-1: oklch(0.96 0.004 85);
+        --tx-2: oklch(0.8 0.008 265);
+        --tx-3: oklch(0.62 0.01 265);
+        --tx-4: oklch(0.48 0.01 265);
+        --acento: oklch(0.81 0.145 72);
+        --acento-tx: oklch(0.22 0.04 70);
+        --fuente: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; }
+      body {
+        width: 320px;
+        min-height: 250px;
+        padding: 14px;
+        background: var(--bg);
+        color: var(--tx-1);
+        font: 13px/1.4 var(--fuente);
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 2px 12px;
+      }
+      header img { width: 24px; height: 24px; }
+      header b { font-size: 15px; letter-spacing: -0.02em; }
+      .tarjeta {
+        padding: 13px 14px;
+        border: 1px solid var(--linea);
+        border-radius: 14px;
+        background: var(--sup-1);
+      }
+      .et {
+        color: var(--tx-4);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 5px 0 3px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.35;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .sub { margin: 0; color: var(--tx-3); font-size: 12px; }
+      .sub b { color: var(--acento); font-weight: 600; }
+      .campo { display: block; margin: 12px 0 10px; }
+      .campo span {
+        display: block;
+        margin: 0 2px 5px;
+        color: var(--tx-3);
+        font-size: 11.5px;
+        font-weight: 600;
+      }
+      textarea {
+        display: block;
+        width: 100%;
+        resize: vertical;
+        min-height: 66px;
+        max-height: 120px;
+        padding: 9px 10px;
+        border: 1px solid var(--linea-fuerte);
+        border-radius: 10px;
+        outline: none;
+        background: var(--sup-2);
+        color: var(--tx-1);
+        font: 12.5px/1.45 var(--fuente);
+      }
+      textarea::placeholder { color: var(--tx-4); }
+      textarea:focus {
+        border-color: oklch(0.81 0.145 72 / 0.55);
+        box-shadow: 0 0 0 3px oklch(0.81 0.145 72 / 0.14);
+      }
+      button.primario {
+        width: 100%;
+        height: 36px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--acento);
+        color: var(--acento-tx);
+        font: 650 13px var(--fuente);
+        cursor: pointer;
+      }
+      button.primario:disabled { opacity: 0.55; cursor: default; }
+      #abrir {
+        display: block;
+        margin-top: 9px;
+        color: var(--tx-3);
+        text-align: center;
+        font-size: 12px;
+        text-decoration: none;
+      }
+      #abrir:hover { color: var(--acento); }
+      .ayuda {
+        margin: 12px 0 0;
+        padding: 11px 12px;
+        border: 1px solid oklch(0.81 0.145 72 / 0.25);
+        border-radius: 11px;
+        background: oklch(0.81 0.145 72 / 0.07);
+        color: var(--tx-2);
+      }
+      .ayuda h2 { margin: 0 0 5px; font-size: 12px; color: var(--tx-1); }
+      .ayuda ol { margin: 0; padding-left: 17px; font-size: 12px; }
+      .ayuda li + li { margin-top: 4px; }
+      .error { margin: 9px 0 0; color: oklch(0.72 0.17 25); font-size: 12px; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <header><img src="icons/logo.svg" alt="" /><b>migas</b></header>
+    <main>
+      <section class="tarjeta" aria-live="polite">
+        <div class="et">Esta página</div>
+        <h1 id="titulo">Cargando…</h1>
+        <p id="resumen" class="sub">Consultando el diario…</p>
+      </section>
+      <label class="campo">
+        <span>Nota</span>
+        <textarea id="nota" maxlength="4000" placeholder="Añade una nota…"></textarea>
+      </label>
+      <button id="guardar" class="primario" type="button" disabled>Guardar página</button>
+      <a id="abrir" href="#">Abrir migas</a>
+      <section id="ayuda" class="ayuda" hidden>
+        <h2>Conecta migas en 2 pasos</h2>
+        <ol>
+          <li>Abre migas → Ajustes → Conexión y pulsa «Instalar integraciones».</li>
+          <li>Vuelve a cargar esta extensión en <b>chrome://extensions</b>.</li>
+        </ol>
+      </section>
+      <p id="error" class="error" role="alert" hidden></p>
+    </main>
+    <script src="ventana.js"></script>
+  </body>
+</html>
